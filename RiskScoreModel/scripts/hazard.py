@@ -7,11 +7,11 @@ import warnings
 
 # Suppress all warnings
 warnings.filterwarnings("ignore")
-path = os.getcwd() #+ r"/HP/flood-data-ecosystem-Himachal-Pradesh"
+path = os.getcwd()
 
 master_variables = pd.read_csv(path+'/RiskScoreModel/data/MASTER_VARIABLES.csv')
 
-hazard_vars = [#'inundation_intensity_mean_nonzero', 'inundation_intensity_sum', 
+hazard_vars = ['inundation_intensity_mean_nonzero', 'inundation_intensity_sum', 
     'mean_rain', 'max_rain'
     #,'drainage_density', 'Sum_Runoff', 'Peak_Runoff','slope_mean','elevation_mean','distance_from_river_mean'
     ]
@@ -89,7 +89,7 @@ for month in tqdm(hazard_df.timeperiod.unique()):
     # Create the new column based on the conditions
     hazard_df_month['max_rain_level'] = np.select(conditions, categories)#, default='outlier')
     #!! ************** !!#
-    '''
+    
     # Calculate mean and standard deviation
     mean = hazard_df_month['inundation_intensity_mean_nonzero'].mean()
     std = hazard_df_month['inundation_intensity_mean_nonzero'].std()
@@ -103,7 +103,7 @@ for month in tqdm(hazard_df.timeperiod.unique()):
         (hazard_df_month['inundation_intensity_mean_nonzero'] > mean + 3 * std)
     ]
     # Create the new column based on the conditions
-    hazard_df_month['inundation_intensity_mean_nonzero_level'] = np.select(conditions, categories, default='outlier')
+    hazard_df_month['inundation_intensity_mean_nonzero_level'] = np.select(conditions, categories)#, default='outlier')
     #!! ************** !!#
 
     # Calculate mean and standard deviation
@@ -120,9 +120,9 @@ for month in tqdm(hazard_df.timeperiod.unique()):
     ]
     
     # Create the new column based on the conditions
-    hazard_df_month['inundation_intensity_sum_level'] = np.select(conditions, categories, default='outlier')
+    hazard_df_month['inundation_intensity_sum_level'] = np.select(conditions, categories)#, default='outlier')
     #!! ************** !!#
-
+    '''
     mean = hazard_df_month['Sum_Runoff'].mean()
     std = hazard_df_month['Sum_Runoff'].std()
 

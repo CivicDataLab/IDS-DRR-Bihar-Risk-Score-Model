@@ -148,7 +148,7 @@ indicators = ['total-tender-awarded-value',
     #"roadlength",
     'sum-population',
     
-    #'inundation-intensity-sum',
+    'inundation-intensity-sum',
     'total-hhd',
     #'human-live-lost',
     #'sum-aged-population',
@@ -159,9 +159,9 @@ indicators = ['total-tender-awarded-value',
     'sd-nosanitation-hhds-pct',
     #'drainage-density',
     #'flood-hazard',
-    #'inundation-pct',
-    #'inundation-intensity-mean',
-    #'inundation-intensity-mean-nonzero',
+    'inundation-pct',
+    'inundation-intensity-mean',
+    'inundation-intensity-mean-nonzero',
     'avg-electricity',
     'sd-piped-hhds-pct',
     #'mean-sex-ratio',
@@ -210,6 +210,8 @@ indicators = ['total-tender-awarded-value',
 aggregation_rules = {
     # Sum columns
     'total-tender-awarded-value': 'sum', 
+    'total-tender-awarded-value-fy-cumsum': 'sum', 
+    
     #'repair-and-restoration-tenders-awarded-value': 'sum',
     #'lwss-tenders-awarded-value': 'sum', 
     #ndrf-tenders-awarded-value': 'sum', 
@@ -229,7 +231,7 @@ aggregation_rules = {
     #"roadlength": 'sum',
 
     'sum-population': 'sum',
-    #'inundation-intensity-sum': 'sum',
+    'inundation-intensity-sum': 'sum',
     'total-hhd': 'sum',
     #'sum-aged-population': 'sum',
     #'schools-count': 'sum',
@@ -246,9 +248,9 @@ aggregation_rules = {
     # Mean for percentage or density-based metrics
     'sd-nosanitation-hhds-pct': 'mean',
     #'drainage-density': 'mean',
-    ##'inundation-pct': 'mean',
-    #'inundation-intensity-mean-nonzero': 'mean',
-    #'inundation-intensity-mean': 'mean',
+    'inundation-pct': 'mean',
+    'inundation-intensity-mean-nonzero': 'mean',
+    'inundation-intensity-mean': 'mean',
     'avg-electricity': 'mean',
     'sd-piped-hhds-pct': 'mean',
     #'mean-sex-ratio': 'mean',
@@ -280,7 +282,8 @@ aggregation_rules = {
 
 rounding_rules = {
 
-    'total-tender-awarded-value':0, 
+    'total-tender-awarded-value':0,
+    'total-tender-awarded-value-fy-cumsum':0, 
     #'repair-and-restoration-tenders-awarded-value':0,
     #'lwss-tenders-awarded-value':0, 
     #'ndrf-tenders-awarded-value':0, 
