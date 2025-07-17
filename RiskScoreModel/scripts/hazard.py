@@ -171,16 +171,16 @@ for month in tqdm(hazard_df.timeperiod.unique()):
     hazard_df_month['elevation_mean'] = np.select(conditions, categories_reversed, default='outlier')
     '''
     #Average of all levels
-    hazard_df_month['flood-hazard'] = (#hazard_df_month['inundation_intensity_mean_nonzero_level'].astype(int)
-                                        #+ hazard_df_month['inundation_intensity_sum_level'].astype(int)
-                                        hazard_df_month['mean_rain_level'].astype(int)
-                                        + hazard_df_month['max_rain_level'].astype(int)
+    hazard_df_month['flood-hazard'] = (hazard_df_month['inundation_intensity_mean_nonzero_level'].astype(int)
+                                        + hazard_df_month['inundation_intensity_sum_level'].astype(int)
+                                        #+hazard_df_month['mean_rain_level'].astype(int)
+                                        #+ hazard_df_month['max_rain_level'].astype(int)
                                         #+ hazard_df_month['drainage_density_level'].astype(int)
                                         #+ hazard_df_month['Sum_Runoff'].astype(int)
                                         #+ hazard_df_month['elevation_mean'].astype(int)
                                         #+ hazard_df_month['distance_from_river_mean'].astype(int)
                                         #+ hazard_df_month['slope_mean'].astype(int)
-                                        )/7
+                                        )/2
     
     hazard_df_month['flood-hazard'] = round(hazard_df_month['flood-hazard'])
 
